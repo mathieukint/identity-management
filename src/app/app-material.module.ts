@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatListModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTooltipModule
   ]
 })
 export class AppMaterialModule { }
