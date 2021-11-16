@@ -1,6 +1,4 @@
 import {UserLdap} from "./user-ldap";
-import {empty} from "rxjs/internal/Observer";
-import {parse} from "@angular/compiler/src/render3/view/style_parser";
 
 export const LDAP_USERS: UserLdap[] = [
   {

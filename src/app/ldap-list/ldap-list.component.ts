@@ -17,7 +17,7 @@ export class LdapListComponent implements OnInit {
   displayedColumns: string[] = ['nomComplet', 'mail', 'employeNumero'];
   //dataSource = new MatTableDataSource<UserLdap>(LDAP_USERS);
   dataSource = new MatTableDataSource<UserLdap>([]);
-  //unactivateSelected = false;
+  unactivateSelected = false;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -26,11 +26,11 @@ export class LdapListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
-    //this.dataSource.filterPredicate = (data: UserLdap, filter: string) => this.filterPredicate(data, filter);
+    this.dataSource.filterPredicate = (data: UserLdap, filter: string) => this.filterPredicate(data, filter);
     this.getUsers();
   }
 
-  /*filterPredicate(data, filter): boolean {
+  filterPredicate(data, filter): boolean {
     return !filter || data.nomComplet.toLowerCase().startsWith(filter);
   }
 
@@ -38,7 +38,7 @@ export class LdapListComponent implements OnInit {
     const filterValue = ($event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-*/
+
   private getUsers(): void {
     /*this.usersService.getUsers().subscribe(
       users => {
@@ -50,14 +50,14 @@ export class LdapListComponent implements OnInit {
       }
     );*/
     this.dataSource.data = LDAP_USERS;
-    //if (this.unactivateSelected) {
-    //  this.dataSource.data = this.dataSource.data.filter(user=>user.active===false);
-    //}
+    if (this.unactivateSelected) {
+      this.dataSource.data = this.dataSource.data.filter(user => user.active === false);
+    }
   }
-/*
+
   unactiveChanged($event: MatSlideToggleChange): void {
-    this.unactiveSelected = $event.checked;
+    this.unactivateSelected = $event.checked;
     this.getUsers();
   }
-*/
+
 }

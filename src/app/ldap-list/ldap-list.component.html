@@ -1,6 +1,6 @@
 <div class = 'mat-elevation-z8'>
 
-<!--  <div class="toolbar-filter">
+  <div class="toolbar-filter">
     &nbsp;&nbsp;
     <mat-form-field style="width: 40%">
       <mat-label>Nom complet</mat-label>
@@ -8,12 +8,12 @@
              placeholder="Entrez le début d'un nom" />
     </mat-form-field>
     &nbsp;&nbsp;
-    <mat-slide-toggle [checked]="unactiveSelected"
+    <mat-slide-toggle [checked]="unactivateSelected"
                       (change)="unactiveChanged($event)">
       Utilisateur désactivé uniquement
     </mat-slide-toggle>
   </div>
--->
+
   <table mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef = "nomComplet">
